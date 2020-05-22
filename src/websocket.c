@@ -315,8 +315,6 @@ static void receive_ws_packet(gdbfrontendlive_websocket_clients_t* client) {
         plen = ntohs(plen64);
     }
 
-    printf("plen: %d\n", plen);
-
     if (is_masked) {
         result = recv(client->socket, mkey, 4, MSG_WAITALL);
         if (!result) {
@@ -340,7 +338,7 @@ static void receive_ws_packet(gdbfrontendlive_websocket_clients_t* client) {
         }
     }
 
-    printf("Raw Message: %s\n", req);
+    gdbfrontendlive_verbose("Raw Message: %s\n", req);
 
     jsonic_node_t* root = jsonic_get_root(req);
     jsonic_node_t* action = jsonic_object_get(req, root, "action");
