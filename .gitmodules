@@ -1,0 +1,15 @@
+[submodule "gdb-frontend"]
+	path = gdb-frontend
+	url = https://github.com/rohanrhu/gdb-frontend
+
+[submodule "libjsonic"]
+	path = lib/jsonic
+	url = https://github.com/rohanrhu/jsonic
+
+[submodule "gdb-frontend-live-client"]
+	path = gdb-frontend-live-client
+	url = https://github.com/rohanrhu/gdb-frontend-live-client
+
+[submodule "gdb-frontend-plugins/gdb_frontend_live_adapter"]
+	path = gdb-frontend-plugins/gdb_frontend_live_adapter
+	url = https://github.com/rohanrhu/gdb-frontend-live-adapter

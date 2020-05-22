@@ -1,0 +1,173 @@
+/*
+ * GDBFrontendLive is a server that creates GDBFrontend instances and provides an online IDE.
+ *
+ * https://github.com/rohanrhu/gdb-frontend-live
+ * https://oguzhaneroglu.com/projects/gdb-frontend-live/
+ *
+ * Licensed under GNU/GPLv3
+ * Copyright (C) 2020, Oğuzhan Eroğlu (https://oguzhaneroglu.com/) <rohanrhu2@gmail.com>
+ *
+ */
+
+@font-face {
+  font-family: 'SourceSansPro Regular';
+  src: url('../thirdparty/sourcesanspro/SourceSansPro-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceSansPro Bold';
+  src: url('../thirdparty/sourcesanspro/SourceSansPro-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceSansPro SemiBold';
+  src: url('../thirdparty/sourcesanspro/SourceSansPro-SemiBold.ttf') format('truetype');
+}  
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: black;
+    color: white;
+    text-align: left;
+    line-height: 100%;
+    font-family: 'SourceSansPro Regular';
+    font-size: 16px;
+    overflow: hidden;
+}
+
+b {
+    font-family: 'SourceSansPro Bold';
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+textarea {
+    font-family: 'SourceSansPro Regular';
+}
+
+a, a:visited {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content_center {
+    text-align: center;
+}
+
+.content_left {
+    text-align: left;
+}
+
+.content_right {
+    text-align: right;
+}
+
+img {
+    border: 0px;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.table_td {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.main_width {
+    padding: 0px 25px;
+}
+
+/* ------------------------------------------------- */
+
+.button1 {
+    height: 34px;
+    padding: 0px 10px;
+    background: rgba(255,255,255,0.1);
+    display: inline-flex;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 100ms;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.button1:hover {
+    background: rgba(0,0,0,0.75);
+}
+
+.button1:active {
+    outline: 1;
+}
+
+/* ------------------------------------------------- */
+
+.input1 {
+    border: 0px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0px 10px;
+    background: rgba(0,0,0,0.5);
+    display: inline-block;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 100ms;
+    outline: none;
+    cursor: initial;
+    color: white;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.input1:focus {
+    box-shadow: 0px 0px 0px 2px rgba(85, 161, 255, 0.25), 0px 0px 20px 0px rgba(255,255,255,0.125);
+}
+
+/* ------------------------------------------------- */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+} 
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.7);
+}
+
+::-webkit-scrollbar-track {
+}
+
+/* ------------------------------------------------- */
