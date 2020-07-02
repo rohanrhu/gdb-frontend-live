@@ -19,10 +19,10 @@
 #define GDBFRONTENDLIVE_DEFAULT_WS_PORT 4551
 
 #define GDBFRONTENDLIVE_VERSION {0, 0, 1, "alpha", '\0'}
-#define GDBFRONTENDLIVE_VERSION_STRING "v0.0.1-alpha\0"
+#define GDBFRONTENDLIVE_VERSION_STRING "v0.0.1-alpha"
 
-#define GDBFRONTENDLIVE_GF_VERSION {0, 0, 20, "git", '\0'}
-#define GDBFRONTENDLIVE_GF_VERSION_STRING "v0.0.20-git\0"
+#define GDBFRONTENDLIVE_GF_VERSION {0, 1, 1, "beta", '\0'}
+#define GDBFRONTENDLIVE_GF_VERSION_STRING "v0.1.1-beta"
 
 char* gdbfrontendlive_host;
 char* gdbfrontendlive_bind;
