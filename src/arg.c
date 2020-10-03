@@ -43,7 +43,7 @@ extern void gdbfrontendlive_arg_handle(gdbfrontendlive_arg_t* arg) {
     void* _is_expect_value;
     gdbfrontendlive_arg_function_t _function;
 
-    int is_found = 0;
+    int is_found;
     
     for (_taken_i=1; _taken_i < arg->argc; _taken_i++) {
         _taken = arg->argv[_taken_i];
@@ -54,6 +54,8 @@ extern void gdbfrontendlive_arg_handle(gdbfrontendlive_arg_t* arg) {
             expector_s = NULL;
             continue;
         }
+
+        is_found = 0;
 
         for (_argument_i=0;; _argument_i++) {
             _full = arg->arguments[_argument_i*4 + GDBFRONTENDLIVE_ARGUMENT_FULL];
@@ -93,6 +95,8 @@ extern void gdbfrontendlive_arg_handle(gdbfrontendlive_arg_t* arg) {
             }
 
             _function(_taken+_full_len+1);
+
+            is_found = 1;
         }
 
         if (!is_found && !expector_f) {

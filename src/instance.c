@@ -173,7 +173,7 @@ extern void gdbfrontendlive_instance_run(gdbfrontendlive_instance_t* instance) {
 
         execvp(gf_executable, args);
 
-        printf("exec() error.\n");
+        printf("exec() error: %s\n", strerror(errno));
         exit(1);
     }
     
