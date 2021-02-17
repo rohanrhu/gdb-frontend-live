@@ -45,7 +45,7 @@ GFLive provides full access on instance user and group that are set by `--instan
 
 ## Other Parts
 ### GDBFrontend: [gdb-frontend](https://github.com/rohanrhu/gdb-frontend)
-GDBFrontend adapter plugin for adopting instance to GDBFrontendLive.
+GDBFrontend to create instances.
 
 ### Adapter: [gdb-frontend-live-adapter](https://github.com/rohanrhu/gdb-frontend-live-adapter)
 GDBFrontend adapter plugin for adopting instance to GDBFrontendLive.
@@ -95,6 +95,17 @@ No. You can use it on Linux.
 
 ### Does it support WSL?
 GDBFrontend supports WSL but GFLive does not.
+### Issues about WSL
+* GFLive needs random ports and on WSL 1, Random port option is not usable on WSL becasue `/proc/net/tcp` interface is not working on WSL. (WSL 2 does not has this problem.)
+## Versioning
+Since v0.1.0-git, GFLive switched to a new versioning strategy.
+
+### Reading Versions
+In `vX.Y.Z-STABILITY`:
+* `X` is **major** versions, changes long term with major features and enhancements.
+* `Y` is **main** versions that include new features and enhancements.
+* `Z` is **bugfix** releases of main versions.
+* `STABILITY` is stability level of the release. (`alpha`, `beta`, `rcN`, `stable`)
 
 ## Documentation
 Documentation is TODO yet.
@@ -106,6 +117,12 @@ All PRs are welcome.
 You can donate to support the project.
 
 <a href="https://liberapay.com/EvrenselKisilik/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+
+or you can make donation with Bitcoin:
+
+| QR Code | Bitcoin address for donations |
+|---|---|
+| ![Bitcoin address QR code for donate](media/btc-donation-qr.png) | **3KBtYfaAT42uVFd6D2XFRDTAoErLz73vpL** |
 
 ## License
 GNU General Public License v3 (GPL-3)
