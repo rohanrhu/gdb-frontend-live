@@ -462,6 +462,8 @@ extern gdbfrontendlive_websocket_clients_t* gdbfrontendlive_websocket_client_ini
     client->address = 0;
     client->next = NULL;
     client->prev = NULL;
+    
+    return client;
 }
 
 extern void gdbfrontendlive_websocket_client_free(gdbfrontendlive_websocket_clients_t* client) {
