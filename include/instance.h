@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef __GDBFRONTENDLIVE_INSTANCES_H__
-#define __GDBFRONTENDLIVE_INSTANCES_H__
+#ifndef __GDBFRONTENDLIVE_INSTANCE_H__
+#define __GDBFRONTENDLIVE_INSTANCE_H__
 
 #include <stdio.h>
 #include <sys/types.h>
