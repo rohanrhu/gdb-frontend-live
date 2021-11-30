@@ -72,7 +72,7 @@ Options:
         --help, -h:                             Shows this help text.
         --version, -v:                          Shows GDBFrontendLive and GDBFrontend versions.
         --host-address=IP, -H IP:               Specifies bind address.
-        --bind-address=IP, -l IP:               Specifies host address.
+        --bind-address=IP, -l IP:               Specifies host address. (Default is 127.0.0.1)
         --ws-port=PORT, -wsp PORT:              Specifies GDBFrontend websocket server's port.
         --instance-user=USER, -u USER:          Sets the user that runs instances.
         --instance-group=GROUP, -g GROUP:       Sets the group that runs instances.
