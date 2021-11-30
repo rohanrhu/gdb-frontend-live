@@ -72,7 +72,7 @@ static void arg_handler_help(char* value) {
     printf("\t--help, -h:\t\t\t\tShows this help text.\n");
     printf("\t--version, -v:\t\t\t\tShows GDBFrontendLive and GDBFrontend versions.\n");
     printf("\t--host-address=IP, -H IP:\t\tSpecifies bind address.\n");
-    printf("\t--bind-address=IP, -l IP:\t\tSpecifies host address.\n");
+    printf("\t--bind-address=IP, -l IP:\t\tSpecifies host address. (Default is 127.0.0.1)\n");
     printf("\t--ws-port=PORT, -wsp PORT:\t\tSpecifies GDBFrontend websocket server's port.\n");
     printf("\t--instance-user=USER, -u USER:\t\tSets the user that runs instances.\n");
     printf("\t--instance-group=GROUP, -g GROUP:\tSets the group that runs instances.\n");
