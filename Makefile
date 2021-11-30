@@ -19,6 +19,8 @@ CFLAGS = -std=c99 \
 		 -lpthread \
 		 -lm
 
+LDFLAGS =
+
 SOURCES = $(shell find . -wholename "./src/*.c")
 HEADERS = $(shell find . -wholename "./include/*.h")
 EXECUTABLES = server
@@ -33,25 +35,25 @@ dist:
 	mkdir -p dist/
 
 server: dist $(OBJECTS) jsonic
-	$(CC) -o $@ src/server.c $(filter-out dist jsonic, $^) lib/jsonic/jsonic.o $(CFLAGS)
+	$(CC) -o $@ src/server.c $(filter-out dist jsonic, $^) lib/jsonic/jsonic.o $(CFLAGS) $(LDFLAGS)
 	chmod +x server
 	$(RM) dist/
 	@echo "\033[32mExecutable: ./server is built.\033[0m"
 
 dist/util.o:
-	$(CC) -c -o $@ src/util.c $(CFLAGS)
+	$(CC) -c -o $@ src/util.c $(CFLAGS) $(LDFLAGS)
 
 dist/instance.o:
-	$(CC) -c -o $@ src/instance.c $(CFLAGS)
+	$(CC) -c -o $@ src/instance.c $(CFLAGS) $(LDFLAGS)
 
 dist/uniqid.o:
-	$(CC) -c -o $@ src/uniqid.c $(CFLAGS)
+	$(CC) -c -o $@ src/uniqid.c $(CFLAGS) $(LDFLAGS)
 
 dist/arg.o:
-	$(CC) -c -o $@ src/arg.c $(CFLAGS)
+	$(CC) -c -o $@ src/arg.c $(CFLAGS) $(LDFLAGS)
 
 dist/websocket.o:
-	$(CC) -c -o $@ src/websocket.c $(CFLAGS)
+	$(CC) -c -o $@ src/websocket.c $(CFLAGS) $(LDFLAGS)
 
 jsonic:
 	make -C lib/jsonic
