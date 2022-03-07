@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pwd.h>
+#include <signal.h>
 
 #include "../include/server.h"
 
@@ -27,8 +28,14 @@ char* gdbfrontendlive_bind = NULL;
 
 int gdbfrontendlive_ws_port = GDBFRONTENDLIVE_DEFAULT_WS_PORT;
 
+static void sigabrt_handler() {
+    printf("SIGABRT received.");
+}
+
 int main(int argc, char** argv) {
     printf("GDBFrontendLive %s\n", GDBFRONTENDLIVE_VERSION_STRING);
+
+    sigaction(SIGABRT, &(struct sigaction){sigabrt_handler}, NULL);
 
     gdbfrontendlive_instance_user_uid = 0;
     gdbfrontendlive_instance_group_gid = 0;

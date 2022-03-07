@@ -31,6 +31,10 @@
 #include "../include/util.h"
 #include "../include/instance.h"
 
+static void sigabrt_handler() {
+    printf("SIGABRT received.");
+}
+
 gdbfrontendlive_websocket_t* gdbfrontendlive_websocket_init(int port) {
     gdbfrontendlive_websocket_t* ws = malloc(sizeof(gdbfrontendlive_websocket_t));
     ws->port = port;
@@ -42,6 +46,7 @@ gdbfrontendlive_websocket_t* gdbfrontendlive_websocket_init(int port) {
 
 void gdbfrontendlive_websocket_listen(gdbfrontendlive_websocket_t* ws) {
     sigaction(SIGPIPE, &(struct sigaction){broken_pipe_handler}, NULL);
+    sigaction(SIGABRT, &(struct sigaction){sigabrt_handler}, NULL);
     
     int server_socket;
     int client_socket;
@@ -296,6 +301,11 @@ static void receive_ws_packet(gdbfrontendlive_websocket_clients_t* client) {
 
     opcode = ((uint8_t)header0_16) & 0b00001111;
 
+    if (opcode == 8) {
+        client_disconnected(client);
+        return;
+    }
+
     is_masked = (*(((uint8_t*)(&header0_16))+1)) & -128;
     plen = (*(((uint8_t*)(&header0_16))+1)) & 127;
     
@@ -405,16 +415,36 @@ static void receive_ws_packet(gdbfrontendlive_websocket_clients_t* client) {
                 res,
                 "{"
                     "\"ok\": true,"
+                    "\"event\": \"instance_get_ret\","
                     "\"instance\": false"
                 "}"
             );
         }
 
         send_ws_packet(client, res);
+    } else if (strcmp(action->val, "ping") == 0) {
+        res = malloc(500);
+        
+        sprintf(
+            res,
+            "{"
+                "\"ok\": true,"
+                "\"event\": \"pong\""
+            "}"
+        );
+
+        send_ws_packet(client, res);
     }
     
-    free(req);
-    free(res);
+    if (req) {
+        free(req);
+        req = NULL;
+    }
+
+    if (res) {
+        free(res);
+        res = NULL;
+    }
 
     goto RECEIVE_FRAME;
 }
@@ -424,7 +454,11 @@ static void client_disconnected(gdbfrontendlive_websocket_clients_t* client) {
     inet_ntop(AF_INET, (void*)&client->address, str_addr, INET_ADDRSTRLEN);
     
     gdbfrontendlive_verbose("Client disconnected: %s\n", str_addr);
-    gdbfrontendlive_websocket_client_free(client);
+    
+    if (client) {
+        gdbfrontendlive_websocket_client_free(client);
+        client = NULL;
+    }
 }
 
 static void send_ws_packet(gdbfrontendlive_websocket_clients_t* client, char* message) {
@@ -476,7 +510,10 @@ extern void gdbfrontendlive_websocket_client_free(gdbfrontendlive_websocket_clie
     }
 
     if (client->is_host && client->instance) {
-        gdbfrontendlive_instance_destroy(client->instance);
+        if (client->instance) {
+            gdbfrontendlive_instance_destroy(client->instance);
+            client->instance = NULL;
+        }
     }
 
     if (client->ws_key != NULL) {

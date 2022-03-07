@@ -19,11 +19,11 @@
 #include "../include/util.h"
 #include "../include/websocket.h"
 
-char* gdbfrontendlive_instance_user_name;
-uid_t gdbfrontendlive_instance_user_uid;
+extern char* gdbfrontendlive_instance_user_name;
+extern uid_t gdbfrontendlive_instance_user_uid;
 
-char* gdbfrontendlive_instance_group_name;
-uid_t gdbfrontendlive_instance_group_gid;
+extern char* gdbfrontendlive_instance_group_name;
+extern uid_t gdbfrontendlive_instance_group_gid;
 
 typedef struct gdbfrontendlive_instance_gfproc gdbfrontendlive_instance_gfproc_t;
 struct gdbfrontendlive_instance_gfproc {

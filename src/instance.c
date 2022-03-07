@@ -39,6 +39,10 @@ gid_t gdbfrontendlive_instance_group_gid = 0;
 gdbfrontendlive_instance_t* instances = NULL;
 gdbfrontendlive_instance_t* instances_current = NULL;
 
+static void sigabrt_handler() {
+    printf("SIGABRT received.");
+}
+
 extern gdbfrontendlive_instance_t* gdbfrontendlive_instance_create() {
     gdbfrontendlive_instance_t* instance = malloc(sizeof(gdbfrontendlive_instance_t));
     instance->is_running = 0;
@@ -143,6 +147,8 @@ extern void gdbfrontendlive_instance_run(gdbfrontendlive_instance_t* instance) {
     instance->gfproc->pid = fork();
 
     if (instance->gfproc->pid == 0) {
+        sigaction(SIGABRT, &(struct sigaction){sigabrt_handler}, NULL);
+        
         if (instance->client) {
             close(instance->client->socket);
             close(instance->client->server_socket);
@@ -168,6 +174,7 @@ extern void gdbfrontendlive_instance_run(gdbfrontendlive_instance_t* instance) {
             "-t", instance->id,
             "-w", instance->workdir,
             "-P", plugins_dir,
+            "-D",
             NULL
         };
 
@@ -239,10 +246,17 @@ extern void gdbfrontendlive_instance_destroy(gdbfrontendlive_instance_t* instanc
         
         system(rmrf);
         
-        free(instance->workdir);
+        if (instance->workdir) {
+            free(instance->workdir);
+            instance->workdir = NULL;
+        }
     }
 
-    free(instance->gfproc);
+    if (instance->gfproc) {
+        free(instance->gfproc);
+        instance->gfproc = NULL;
+    }
+    
     free(instance);
 }
 
