@@ -11,6 +11,7 @@
 CC = gcc
 
 CFLAGS = -std=c99 \
+		 -fcommon \
 		 -I. \
 		 -g \
 		 -luuid \
