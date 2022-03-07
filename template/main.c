@@ -17,3 +17,7 @@ int main(int argc, char* argv[]) {
     
     return 0;
 }
+
+/*
+ * To start your ap, just click to "bug button" on top left.
+ */
