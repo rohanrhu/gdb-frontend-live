@@ -175,6 +175,7 @@ extern void gdbfrontendlive_instance_run(gdbfrontendlive_instance_t* instance) {
             "-w", instance->workdir,
             "-P", plugins_dir,
             "-D",
+            "-u", "./",
             NULL
         };
 
