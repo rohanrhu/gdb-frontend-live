@@ -44,7 +44,7 @@ GDBFrontend is a debugger in fact for now but it provides basic editing features
 
 **Note:** Still both projects GFlive and GF are very new and on alpha stages.
 
-## Use with Docker Conteinerization
+## Use with Docker Containerization
 
 You can use GFLive with Docker easily.
 
