@@ -88,7 +88,7 @@ void gdbfrontendlive_websocket_listen(gdbfrontendlive_websocket_t* ws) {
 
     gdbfrontendlive_verbose("Server is listening from 0.0.0.0:%d\n", ws->port);
 
-    printf("\033[32mOpen gdb-frontend-live-plugin/index.html and share gdb-frontend-live-plugin directory.\033[0m\n");
+    printf("\033[32mOpen gdb-frontend-live-client/index.html and share gdb-frontend-live-client directory.\033[0m\n");
 
     pthread_t client_thread;
 
