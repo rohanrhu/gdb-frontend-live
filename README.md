@@ -52,7 +52,7 @@ Install [Docker](https://www.docker.com/), and follow these simple steps:
 Get the latest GIT revision:
 
 ```bash
-git clone https://github.com/rohanrhu/gdb-frontend-live.git
+git clone --recursive https://github.com/rohanrhu/gdb-frontend-live.git
 cd gdb-frontend-live
 ```
 
