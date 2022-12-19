@@ -8,3 +8,7 @@ __pycache__
 .swp
 dist
 server
+
+# macOS
+
+.DS_Store
