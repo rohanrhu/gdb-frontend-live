@@ -78,7 +78,7 @@ docker container rm gflive
 ```
 
 ```bash
-docker image gflive
+docker image rm gflive
 ```
 
 ### Security with Docker
