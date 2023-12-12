@@ -199,16 +199,16 @@ You can donate for supporting me :)
 
 | QR Code                                                        | Bitcoin address for donations                |
 | -------------------------------------------------------------- | -------------------------------------------- |
-| ![Bitcoin address QR code for donate](media/btc-donation-qr.png) | **3KBtYfaAT42uVFd6D2XFRDTAoErLz73vpL** |
+| ![Bitcoin address QR code for donate](media/btc-donation-qr.png) | **bc1qhvlc762kwuzeawedl9a8z0duhs8449nwwc35e2** |
 
 Other currencies:
 
 | Currency | Address                                    |
 | -------- | ------------------------------------------ |
-| BTC      | 3KBtYfaAT42uVFd6D2XFRDTAoErLz73vpL         |
-| ETH      | 0xCa422B014A6F588606864ef2d0C40ec2E5d83DFE |
-| USDT     | 0xCa422B014A6F588606864ef2d0C40ec2E5d83DFE |
-| USDC     | 0xCa422B014A6F588606864ef2d0C40ec2E5d83DFE |
+| BTC      | bc1qhvlc762kwuzeawedl9a8z0duhs8449nwwc35e2 |
+| ETH      | 0x1D99B2a2D85C34d478dD8519792e82B18f861974 |
+| USDT     | 0x1D99B2a2D85C34d478dD8519792e82B18f861974 |
+| USDC     | 0x1D99B2a2D85C34d478dD8519792e82B18f861974 |
 | XMR      | 88qvS4sfUnLZ7nehFrz3PG1pWovvEgprcUhkmVLaiL8PVAFgfHjspjKPLhWLj3DUcm92rwNQENbJ1ZbvESdukWvh3epBUty |
 
 ## License
